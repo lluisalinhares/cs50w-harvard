@@ -1,1 +1,1 @@
-# cs50w-harvard
+# CS50's Web Programming with Python and JavaScript
