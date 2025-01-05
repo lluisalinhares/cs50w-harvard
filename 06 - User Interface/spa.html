@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Application</title>
+    <style>
+        div {
+            display: none;
+        }
+
+        .botao {
+            padding: 5px;
+            margin: 3px;
+        }
+    </style>
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('div').forEach(div => {
+                div.style.display = 'none';
+            })  
+            /* Esta linha oculta as páginas que não estão sendo exibidas (ou, chamadas) no momento. */
+
+            document.querySelector(`#${page}`).style.display = 'block'; 
+            /* Esta linha Seleciona as páginas a serem exibidas. Mas selecionar as páginas é apenas metade do trabalho; é necessário também ocultar as outras páginas, que não serão exibidas no momento; por isso, essa linha e a de cima, trabalham juntas. */
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('button').forEach(button => {
+                button.onclick = function() {
+                    showPage(this.dataset.page);
+                }
+            });
+        });
+        /* Ouvinte de eventos que primeiramente carrega todo o DOM. Depois, associa o click do botão a cada uma das páginas. É aqui que as páginas vão sendo chamadas à exibição, através do click do botão. */
+
+        /* E o interessante em uma SINGLE PAGE é a ideia de poder "simular" múltiplas páginas, mas todas estando de fato, em um único arquivo HTML. Assim, é possível exibir múltiplas informações e layouts, sem fazer novas requisições ao servidor. */
+    </script>
+</head>
+<body>
+    <!-- Os botões -->
+    <button class="botao" data-page="page1">Primeira página</button> 
+    <button class="botao" data-page="page2">Segunda página</button>
+    <button class="botao" data-page="page3">Terceira página</button>
+
+    <!-- As páginas -->
+    <div id="page1">
+        <h1>Essa é a primeira página.</h1>
+    </div>
+
+    <div id="page2">
+        <h1>Essa é a segunda página.</h1>
+    </div>
+
+    <div id="page3">
+        <h1>Essa é a terceira página.</h1>
+    </div>
+    
+</body>
+</html>
