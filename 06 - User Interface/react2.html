@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Vinculando a: React, ReactDOM e Babel-->
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>Hello</title>
+    </head>
+    <body>
+        <div id="app"></div> <!--Div vazia onde será renderizado o conteúdo com react-->
+
+        <script type="text/babel"> /*Informa ao meu Navegador que ele precisará traduzir este código JSX em código JavaScript, antes de executar.*/
+
+            /*Os aplicativos React são compostos por Componentes; que por sua vez, são partes menores da Interface de Usuário de uma Aplicação Web. E para descrever um componente, escrevemos uma função JavaScript, como abaixo. Esta função retorna marcação HTML; ou seja, HTML dentro do JavaScript, isto é, linguagem JSX. */
+            function App() {
+                return (
+                    <div>
+                        Hello!
+                    </div>
+                );
+            }
+
+            ReactDOM.render(<App />, document.querySelector("#app"));
+            /*A função "ReactDOM.render" é para renderizar a aplicativo criado; aceita dois parâmetros: 1- o aplicativo a ser renderizado, que entrou como marcação JSX; e 2- onde na página gostaria de renderizar este componente; no caso, aqui é a div vazia que tem id "app".  */
+
+            /*Ou seja, pelo jeito o React usa JSX para escrever funções que vá renderizar conteúdo no corpo da página HTMl(?)*/
+        </script>
+    </body>
+</html>
